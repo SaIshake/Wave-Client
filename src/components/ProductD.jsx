@@ -12,7 +12,6 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
-import ReactHtmlParser from 'react-html-parser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CheckIcon from '@mui/icons-material/Check';
@@ -252,8 +251,7 @@ const ProductD = ({item}) => {
             
             
             <div>
-              <div className="hidden text-[20px] my-3 sm:flex w-[80%] flex-col">
-                {ReactHtmlParser(item.desc)}
+              <div className="hidden text-[20px] my-3 sm:flex w-[80%] flex-col" dangerouslySetInnerHTML={createMarkup(item?.desc)}>
               </div>
 
             </div>
